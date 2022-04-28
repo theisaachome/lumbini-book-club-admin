@@ -5,7 +5,7 @@ import Single from "./pages/single/Single";
 import Login from "./pages/login/Login";
 import { userInputs } from "./formSource";
 import New from "./pages/new/New";
-
+import "./style/dark.scss";
 
 function App() {
   return (
