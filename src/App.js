@@ -6,6 +6,7 @@ import Login from "./pages/login/Login";
 import { userInputs } from "./formSource";
 import New from "./pages/new/New";
 import "./style/dark.scss";
+import BooksPage from "./pages/BooksPage";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
                 element={<New inputs={userInputs} title="Add New User" />}
               />
             </Route>
+            <Route path="books" element={<BooksPage/>}/>
             <Route path="products">
               <Route index element={<List/>} />
               <Route path=":productId" element={<Single/>}/>
