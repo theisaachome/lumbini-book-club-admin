@@ -8,9 +8,14 @@ import New from "./pages/new/New";
 import "./style/dark.scss";
 import BooksPage from "./pages/BooksPage";
 
+
+// Redux
+import { Provider } from "react-redux";
+import store from "./store";
+
 function App() {
   return (
-    <div className="App">
+    <Provider store={store}>
      <BrowserRouter>
         <Routes>
           <Route path="/">
@@ -36,7 +41,7 @@ function App() {
           </Route>
         </Routes>
      </BrowserRouter>
-    </div>
+    </Provider>
   );
 }
 
