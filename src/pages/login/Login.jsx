@@ -1,8 +1,12 @@
 import { useState } from "react";
+import { toast } from 'react-toastify';
+import PropTypes from 'prop-types';
 import axios from "axios";
 import './Login.scss';
+import { connect } from "react-redux";
+import {  login} from "../../actions/auth";
 
-const Login = () => {
+const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     email:"",
     password:""
@@ -13,19 +17,9 @@ const Login = () => {
 
   const onSubmit = async(e)=>{
     e.preventDefault();
-    const credential = {email,password};
-    try {
-      const config={
-        headers:{
-          'Content-Type':"application/json"
-        }
-      }
-      const result =  await axios.post("/api/v1/auth/login",JSON.stringify(credential),config);
-    console.log(result.data);
-    } catch (err) {
-      console.error(err.response.data);
-    }
+    login(email,password);
   }
+    
   return (
     <>
      <h3>Login Your Account</h3>
@@ -50,4 +44,12 @@ const Login = () => {
   )
 }
 
-export default Login
+Login.propTypes={
+  login: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool
+}
+const mapStateToProps = (state)=>({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps,{ login })(Login);
