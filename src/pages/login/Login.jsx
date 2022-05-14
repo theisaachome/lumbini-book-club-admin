@@ -5,6 +5,7 @@ import axios from "axios";
 import './Login.scss';
 import { connect } from "react-redux";
 import {  login} from "../../actions/auth";
+import { Navigate } from "react-router-dom";
 
 const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -20,6 +21,7 @@ const Login = ({ login, isAuthenticated }) => {
     login(email,password);
   }
     
+  if(isAuthenticated) return <Navigate to="/" />
   return (
     <>
      <h3>Login Your Account</h3>

@@ -21,7 +21,6 @@ function App() {
   useEffect(() => {
     // check for token in LS when app first runs
     if (localStorage.token) {
-      console.log(localStorage.token);
       // if there is a token set axios headers for all requests
       setAuthToken(localStorage.token);
     }
