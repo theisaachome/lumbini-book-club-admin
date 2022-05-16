@@ -1,4 +1,4 @@
-import { GET_AUTHORS } from "../actions/types";
+import { AUTHOR_ERROR, GET_AUTHORS } from "../actions/types";
 
 
 
@@ -20,6 +20,12 @@ const  authorReducer=(state = initialState, action)=> {
                 authors: payload,
                 loading: false
               };
+        case AUTHOR_ERROR:
+            return {
+                ...state,
+                error:payload,
+                loading:false,
+            }
         default:
             return state;
     }

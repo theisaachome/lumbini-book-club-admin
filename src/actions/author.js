@@ -2,14 +2,14 @@ import api from "../utils/api"
 import { AUTHOR_ERROR, GET_AUTHORS } from "./types";
 
 
-
+// get authors
 export const getAuthors = ()=> async (dispatch) =>{
    try {
        const res = await api.get("/authors");
-       console.log(res.data);
+       const {data} =res.data; 
        dispatch({
         type:GET_AUTHORS,
-        payload:res.data
+        payload:data
        });
    } catch (err) {
     dispatch({
