@@ -16,6 +16,7 @@ import store from "./store";
 import setAuthToken from "./utils/setAuthToken";
 import { loadUser } from "./actions/auth";
 import { LOGOUT } from "./actions/types";
+import AuthorsPage from "./pages/AuthorsPage";
 
 function App() {
   useEffect(() => {
@@ -49,6 +50,7 @@ function App() {
               />
             </Route>
             <Route path="books" element={<BooksPage/>}/>
+            <Route path="authors" element={<AuthorsPage/>}/>
             <Route path="products">
               <Route index element={<List/>} />
               <Route path=":productId" element={<Single/>}/>

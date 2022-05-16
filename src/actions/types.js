@@ -13,6 +13,10 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGOUT = 'LOGOUT';
 
+// author
+export const GET_AUTHORS ='GET_AUTHORS';
+export const GET_AUTHOR ='GET_AUTHOR';
+export const AUTHOR_ERROR = 'AUTHOR_ERROR';
 
 export const GET_PROFILE = 'GET_PROFILE';
 export const GET_PROFILES = 'GET_PROFILES';
