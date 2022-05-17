@@ -5,7 +5,7 @@ import  "./home.scss";
 import Widget from '../../components/widget';
 import Featured from '../../components/featured';
 import Chart from '../../components/chart/Index';
-import List from '../../components/table';
+import List from '../../components/table/index';
 const Home = () => {
   return (
     <div className='home'>

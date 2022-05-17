@@ -5,6 +5,7 @@ table {
   tr{
     &:hover{
         background-color: #fafafa;
+        cursor: pointer;
     }
   }
 }
@@ -44,11 +45,7 @@ table th.sort-desc::before {
   border-top: 5px solid #22543d;
 }
 
-.App {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-}
+
 .badge {
   background-color: #9ae6b4;
   color: #22543d;
@@ -58,12 +55,4 @@ table th.sort-desc::before {
   font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
-}
-input {
-  padding: 10px;
-  margin-bottom: 20px;
-  font-size: 18px;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-  box-shadow: none;
 }

@@ -1,11 +1,11 @@
 import React, { useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getAuthors } from "../actions/author";
-import Table from "../components/Table";
-import Spinner from "../components/Spinner";
+import { getAuthors } from "../../actions/author";
+import Table from "../../components/Table";
+import Spinner from "../../components/Spinner";
 
-const AuthorsPage = ({ getAuthors, author: { authors, loading } }) => {
+const Authors = ({ getAuthors, author: { authors, loading } }) => {
   useEffect(() => {
     getAuthors();
   }, [getAuthors]);
@@ -50,9 +50,6 @@ const AuthorsPage = ({ getAuthors, author: { authors, loading } }) => {
                     );
                 }
               },
-              {
-                  Header:"Action"
-              }
         ],
       },
     ],
@@ -68,7 +65,7 @@ const AuthorsPage = ({ getAuthors, author: { authors, loading } }) => {
   );
 };
 
-AuthorsPage.propTypes = {
+Authors.propTypes = {
   getAuthors: PropTypes.func.isRequired,
   author: PropTypes.object.isRequired,
 };
@@ -76,4 +73,4 @@ AuthorsPage.propTypes = {
 const mapStateToProps = (state) => ({
   author: state.author,
 });
-export default connect(mapStateToProps, { getAuthors })(AuthorsPage);
+export default connect(mapStateToProps, { getAuthors })(Authors);

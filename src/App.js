@@ -16,7 +16,9 @@ import store from "./store";
 import setAuthToken from "./utils/setAuthToken";
 import { loadUser } from "./actions/auth";
 import { LOGOUT } from "./actions/types";
-import AuthorsPage from "./pages/AuthorsPage";
+import Authors from "./pages/author/Authors";
+import AuthorForm from "./pages/author/AuthorForm";
+import Author from "./pages/author/Author";
 
 function App() {
   useEffect(() => {
@@ -50,7 +52,15 @@ function App() {
               />
             </Route>
             <Route path="books" element={<BooksPage/>}/>
-            <Route path="authors" element={<AuthorsPage/>}/>
+            {/* <Route path="authors" element={<AuthorsPage/>}/> */}
+            <Route path="authors">
+              <Route index element={<Authors/>} />
+              <Route path=":authorId" element={<Author/>}/>
+              <Route
+                path="new"
+                element={<AuthorForm/>}
+              />
+            </Route>
             <Route path="products">
               <Route index element={<List/>} />
               <Route path=":productId" element={<Single/>}/>
