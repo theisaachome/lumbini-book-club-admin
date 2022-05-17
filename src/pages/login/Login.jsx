@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
-import axios from "axios";
 import './Login.scss';
 import { connect } from "react-redux";
 import {  login} from "../../actions/auth";

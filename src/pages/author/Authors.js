@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { getAuthors } from "../../actions/author";
 import Table from "../../components/Table";
 import Spinner from "../../components/Spinner";
+import { Link } from "react-router-dom";
 
 const Authors = ({ getAuthors, author: { authors, loading } }) => {
   useEffect(() => {
@@ -60,6 +61,9 @@ const Authors = ({ getAuthors, author: { authors, loading } }) => {
   }
   return (
     <>
+      <div>
+        <Link to="/authors/new">Add New</Link>
+      </div>
       <Table columns={columns} data={authors}></Table>
     </>
   );

@@ -1,4 +1,4 @@
-import { AUTHOR_ERROR, GET_AUTHORS } from "../actions/types";
+import { ADD_AUTHOR, AUTHOR_ERROR, GET_AUTHORS } from "../actions/types";
 
 
 
@@ -7,11 +7,11 @@ const initialState = {
     author: null,
     loading: true,
     error: {}
-  };
-  
+};
 
 
-const  authorReducer=(state = initialState, action)=> {
+
+const authorReducer = (state = initialState, action) => {
     const { type, payload } = action;
     switch (type) {
         case GET_AUTHORS:
@@ -19,16 +19,23 @@ const  authorReducer=(state = initialState, action)=> {
                 ...state,
                 authors: payload,
                 loading: false
-              };
+            };
+
+        case ADD_AUTHOR:
+            return {
+                ...state,
+                authors: [payload, ...state.authors],
+                loading: false,
+            }
         case AUTHOR_ERROR:
             return {
                 ...state,
-                error:payload,
-                loading:false,
+                error: payload,
+                loading: false,
             }
         default:
             return state;
     }
-}  
+}
 
 export default authorReducer;
